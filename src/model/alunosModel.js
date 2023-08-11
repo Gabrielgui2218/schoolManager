@@ -8,11 +8,11 @@ const Aluno = sequelize.define('Aluno', {
         autoIncrement: true
     },
     NOME_ALUNO: {
-        type: DataTypes.String,
+        type: DataTypes.STRING,
         allowNull: false
     },
     SERIE_ALUNO: {
-      type: DataTypes.String,
+      type: DataTypes.INTEGER,
       allowNull: false
     },
     DATA_INCLUSAO: {
