@@ -14,8 +14,12 @@ const createAluno = async (req, res) => {
             MENSALIDADE: newAluno.valorMensalidade,
             DATA_INCLUSAO: moment().format()
         })
+
+        const checkAlunoName = () => {
+            
+        }
     } catch (error) {
-       res.status(404).send('Usuários já existe na base') 
+       res.status(500).send('Erro ao criar aluno') 
     }
 }
 
@@ -55,8 +59,14 @@ const deleteAluno = async(req, res) => {
         const [numeroDeLinhasDeletas] = await Aluno.detroy({
             where: {ID_ALUNO: identificadorDoAluno}
         })
+
+        if ([numeroDeLinhasDeletas].length === 0){
+            return res.status(404).send('Não foram excluídos alunos')
+        }
+
+        res.status(200).send('Quantidade de alunos deletados:' + [numeroDeLinhasDeletas].length)
     } catch (error) {
-        
+        res.status(500).send('Erro ao deletar Alunos')        
     }
 }
 
