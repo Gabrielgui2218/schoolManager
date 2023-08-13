@@ -15,9 +15,8 @@ const createAluno = async (req, res) => {
             DATA_INCLUSAO: moment().format()
         })
 
-        const checkAlunoName = () => {
-            
-        }
+
+        
     } catch (error) {
        res.status(500).send('Erro ao criar aluno') 
     }
