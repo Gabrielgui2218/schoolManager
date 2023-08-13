@@ -1,6 +1,4 @@
-const { Sequelize } = require('sequelize')
-const  { Aluno }  = require('../model/alunosModel')
-const { SequelizeMethod, stack } = require('sequelize/types/utils')
+const { Aluno }  = require('../model/alunosModel')
 const { moment } = require('moment')
 
 const createAluno = async (req, res) => {
@@ -33,7 +31,7 @@ const getAllAluno = async(req, res) => {
     }
 }
 
-const updateAluno = async (res, res) => {
+const updateAluno = async (req, res) => {
     const identificadorDoAluno = req.params.id
 
     try {

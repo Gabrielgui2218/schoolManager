@@ -1,5 +1,5 @@
-const { Sequelize, DataType, DataTypes } = require('sequelize')
-const { connectDB } = require('../config/dbConfig')
+const { Sequelize, DataTypes } = require('sequelize')
+const sequelize = new Sequelize('sqlite::memory:');
 
 const Aluno = sequelize.define('Aluno', {
     ID_ALUNO: {
