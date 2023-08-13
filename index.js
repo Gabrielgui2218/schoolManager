@@ -2,10 +2,8 @@ const express = require('express')
 const bodyParser = require('body-parser');
 const connectDB = require('./src/config/dbConfig');
 const app = express()
-
+const { getAllAluno, updateAluno, deleteAluno, createAluno, getOneAluno } = require('./src/controllers/alunosController')
 const PORT = 3000
-
-const alunos = []
 
 app.use(bodyParser.json())
 
@@ -14,31 +12,16 @@ app.listen(PORT, () =>{
 })
 
 
-app.get('/alunos', (req, res) => {
-    res.send(alunos)
-})
+app.get('/alunos', getAllAluno)
 
-app.post('/alunos', (req, res) => {
-    const { id, name, age } = req.body
+app.post('/alunos', createAluno)
 
-    alunos.push({
-        id: id,
-        name: name,
-        age: age
-    })
+app.put('/alunos/:id', updateAluno)
 
-    res.send('Aluno Cadastrado com sucesso').status(204)
-})
+app.delete('/alunos/:id', deleteAluno)
 
-app.put('/alunos/:id', (req, res) => {
-    const { id } = req.params
+app.get('alunos', getOneAluno)
 
-
-})
-
-app.delete('/alunos/:id', (req, res) => {
-    const { id } = req.params
-})
 
 const start = async () =>{
     try {
