@@ -27,7 +27,7 @@ const getAllAluno = async(req, res) => {
         
         res.status(200).json(allAlunos)
     } catch (error) {
-        res.status(404).send('Não existem alunos na nossa base de dados')
+        res.status(404).send(error.message)
     }
 }
 
@@ -40,7 +40,7 @@ const updateAluno = async (req, res) => {
         })
         
         if(!aluno){
-            return res.status(404).send('Aluno não encontrado na base de dados')
+            return res.status(404).send(error.message)
         }
 
         res.status(200).send(aluno)

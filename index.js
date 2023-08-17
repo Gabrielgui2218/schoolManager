@@ -1,11 +1,10 @@
 const express = require('express')
-const bodyParser = require('body-parser');
 const connectDB = require('./src/config/dbConfig');
 const app = express()
 const { getAllAluno, updateAluno, deleteAluno, createAluno, getOneAluno } = require('./src/controllers/alunosController')
-const PORT = 3000
+require('dotenv').config();
 
-app.use(bodyParser.json())
+app.use(express.json())
 
 app.listen(PORT, () =>{
     console.log(`Server is running on port: ${PORT}`);
@@ -26,6 +25,9 @@ app.get('alunos', getOneAluno)
 const start = async () =>{
     try {
         await connectDB
+        app.listen(PORT, () =>{
+            console.log(`Server is running on port: ${PORT}`);
+        })
     } catch (error) {
         console.log(error)
     }
