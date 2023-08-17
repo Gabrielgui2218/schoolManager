@@ -7,3 +7,5 @@ const errorHandlerMiddleware = (err, req, res, next) => {
 
     return res.status(500).json({ msg: 'Algo deu errado, Tente novamente'})
 }
+
+module.exports = errorHandlerMiddleware
