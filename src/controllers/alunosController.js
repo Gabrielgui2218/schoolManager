@@ -1,22 +1,22 @@
-const { Aluno }  = require('../model/alunosModel')
-const { moment } = require('moment')
+const Aluno  = require('../model/alunosModel')
+const moment = require('moment');
 
 const createAluno = async (req, res) => {
-    const newAluno = { nome, serie, situacao, valorMensalidade} = req.body
+    const { nome, serie, situacao, valorMensalidade } = req.body
 
     try {
         await Aluno.create({
-            NOME_ALUNO: newAluno.nome,
-            SERIE_ALUNO: newAluno.serie,
-            SITUACAO: newAluno.situacao,
-            MENSALIDADE: newAluno.valorMensalidade,
+            NOME_ALUNO: nome,
+            SERIE_ALUNO: serie,
+            SITUACAO: situacao,
+            MENSALIDADE: valorMensalidade,
             DATA_INCLUSAO: moment().format()
         })
 
-
+        res.status(201).send('Aluno criado com sucesso')
         
     } catch (error) {
-       res.status(500).send('Erro ao criar aluno') 
+       res.status(500).send(error.message) 
     }
 }
 
