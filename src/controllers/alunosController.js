@@ -10,13 +10,14 @@ const createAluno = async (req, res) => {
             SERIE_ALUNO: serie,
             SITUACAO: situacao,
             MENSALIDADE: valorMensalidade,
-            DATA_INCLUSAO: moment().format()
+            DATA_INCLUSAO: moment().format('YYYY-MM-DD')
         })
 
-        res.status(201).send('Aluno criado com sucesso')
+        res.status(201).json({ message: 'Aluno criado com sucesso' })
         
     } catch (error) {
-       res.status(500).send(error.message) 
+        console.error('Error creating aluno:', error);
+        res.status(500).json({ error: error.message });
     }
 }
 
