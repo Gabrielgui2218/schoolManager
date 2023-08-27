@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
@@ -14,6 +15,10 @@
     "express": "^4.18.2",
     "moment": "^2.29.4",
     "mysql2": "^3.6.0",
+<<<<<<< HEAD
+=======
+    "nodemon": "^3.0.1",
+>>>>>>> 4c08010293b1ca0806a502f8559bd48a039f4cb1
     "sequelize": "^6.32.1",
     "sqlite3": "^5.1.6"
   }
