@@ -18,7 +18,6 @@ const createAluno = async (req, res) => {
     } catch (error) {
         console.error('Error creating aluno:', error);
         res.status(500).json({ error: error.message });
->>>>>>> 4c08010293b1ca0806a502f8559bd48a039f4cb1
     }
 }
 
