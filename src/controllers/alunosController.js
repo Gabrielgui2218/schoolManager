@@ -54,17 +54,14 @@ const updateAluno = async (req, res) => {
 const deleteAluno = async(req, res) => {
     const identificadorDoAluno = req.params.id
     try {
-        const [numeroDeLinhasDeletas] = await Aluno.detroy({
+        await Aluno.destroy({
             where: {ID_ALUNO: identificadorDoAluno}
         })
 
-        if ([numeroDeLinhasDeletas].length === 0){
-            return res.status(404).send('Não foram excluídos alunos')
-        }
+        res.status(200).send('ID_ALUNO deletado: ' + identificadorDoAluno)
 
-        res.status(200).send('Quantidade de alunos deletados:' + [numeroDeLinhasDeletas].length)
     } catch (error) {
-        res.status(500).send('Erro ao deletar Alunos')        
+        res.status(500).send(error.message)        
     }
 }
 
@@ -72,7 +69,7 @@ const getOneAluno = async (req, res) => {
     const identificadorAluno = req.params.id
 
     try {
-        const aluno = Aluno.findOne({
+        const aluno = await Aluno.findOne({
             where: {ID_ALUNO: identificadorAluno}
         })
 
@@ -80,11 +77,11 @@ const getOneAluno = async (req, res) => {
             res.status(404).send('Aluno não encontrado na base de dados')            
         }
         
-        res.status(200).send(aluno)
+        res.status(200).json({aluno})
 
     } catch (error) {
         
-        res.status(500).json({ message: `Erro ao buscar Aluno na base de dados`})
+        res.status(500).json({message: error.message})
     }
 }
 
