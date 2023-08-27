@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
+const { getAllAluno, updateAluno, deleteAluno, createAluno, getOneAluno } = require('../controllers/alunosController')
 
-const {
-    getAllAluno,
-    getOneAluno,
-    updateAluno,
-    deleteAluno,
-    createAluno
-} = require('../controllers/alunosController')
+router.get('/alunos', getAllAluno)
 
-router.route('/').get(getAllAluno).post(createAluno)
-router.route('/:id').get(getOneAluno).patch(updateAluno).delete(deleteAluno)
+router.post('/alunos', createAluno)
+
+router.put('/alunos/:id', updateAluno)
+
+router.delete('/alunos/:id', deleteAluno)
+
+router.get('alunos', getOneAluno)
 
 module.exports = router
+
