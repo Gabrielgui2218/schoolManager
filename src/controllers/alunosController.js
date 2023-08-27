@@ -10,7 +10,7 @@ const createAluno = async (req, res) => {
             SERIE_ALUNO: serie,
             SITUACAO: situacao,
             MENSALIDADE: valorMensalidade,
-            DATA_INCLUSAO: moment().format('YYYY-MM-DD')
+            DATA_INCLUSAO: new Date()
         })
 
         res.status(201).json({ message: 'Aluno criado com sucesso' })

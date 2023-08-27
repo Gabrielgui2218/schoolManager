@@ -16,7 +16,7 @@ const Aluno = sequelize.define('Aluno', {
       allowNull: false
     },
     DATA_INCLUSAO: {
-        type: DataTypes.STRING,
+        type: DataTypes.DATE,
         allowNull: false
     },
     SITUACAO: {

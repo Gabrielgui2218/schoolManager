@@ -12,6 +12,9 @@ const connectDB = new Sequelize(DB_NAME, DB_USER, DB_PASSWORD, {
   host: DB_HOST,
   port: DB_PORT,
   dialect: 'mysql',
+  define: {
+    timestamps: false
+  }
 });
 
 // Test the database connection
