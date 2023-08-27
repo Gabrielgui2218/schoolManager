@@ -10,7 +10,7 @@ router.put('/alunos/:id', updateAluno)
 
 router.delete('/alunos/:id', deleteAluno)
 
-router.get('alunos', getOneAluno)
+router.get('/alunos/:id', getOneAluno)
 
 module.exports = router
 
