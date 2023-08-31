@@ -1,5 +1,4 @@
 const Aluno  = require('../model/alunosModel')
-const moment = require('moment');
 
 const createAluno = async (req, res) => {
     const { nome, serie, situacao, valorMensalidade } = req.body
